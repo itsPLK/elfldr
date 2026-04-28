@@ -18,7 +18,7 @@ along with this program; see the file COPYING. If not, see
 
 #include "elfldr.h"
 #include "log.h"
-#include "notify.h"
+// #include "notify.h"
 #include "pt.h"
 
 #include "bootstrap_elf.c"
@@ -37,7 +37,7 @@ main() {
   pid_t vpid;
   int ret;
 
-  notify("Bootstrapping elfldr.elf...");
+  // notify("Bootstrapping elfldr.elf...");
   LOG_PUTS("Bootstrapping elfldr.elf...");
 
   if(elfldr_sanity_check(bootstrap_elf, bootstrap_elf_len)) {

@@ -30,7 +30,7 @@ along with this program; see the file COPYING. If not, see
 
 #include "elfldr.h"
 #include "log.h"
-#include "notify.h"
+// #include "notify.h"
 #include "selfldr.h"
 #include "uri.h"
 
@@ -302,7 +302,7 @@ serve_elfldr(uint16_t port) {
 
   memset(&srvaddr, 0, sizeof(srvaddr));
   srvaddr.sin_family = AF_INET;
-  srvaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+  srvaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
   srvaddr.sin_port = htons(port);
 
   if(bind(srvfd, (struct sockaddr*)&srvaddr, sizeof(srvaddr)) != 0) {
@@ -330,6 +330,7 @@ serve_elfldr(uint16_t port) {
 }
 
 
+/*
 static int
 notify_address(const char* prefix, int port) {
   char ip[INET_ADDRSTRLEN] = "127.0.0.1";
@@ -371,6 +372,7 @@ notify_address(const char* prefix, int port) {
 
   return 0;
 }
+*/
 
 
 /**
@@ -400,7 +402,7 @@ int main() {
   signal(SIGCHLD, SIG_IGN);
   signal(SIGPIPE, SIG_IGN);
 
-  notify_address("Serving ELF loader on", port);
+  // notify_address("Serving ELF loader on", port);
   while(1) {
     serve_elfldr(port);
     sleep(3);

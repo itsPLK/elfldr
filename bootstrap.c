@@ -21,7 +21,7 @@ along with this program; see the file COPYING. If not, see
 
 #include "elfldr.h"
 #include "log.h"
-#include "notify.h"
+// #include "notify.h"
 #include "pt.h"
 
 
@@ -45,7 +45,7 @@ main() {
   intptr_t vnode;
   int ret;
 
-  notify("Spawning elfldr.elf...");
+  // notify("Spawning elfldr.elf...");
   LOG_PUTS("Spawning elfldr.elf...");
 
   if(elfldr_sanity_check(socksrv_elf, socksrv_elf_len)) {
